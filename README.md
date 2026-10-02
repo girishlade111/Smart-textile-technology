@@ -1,69 +1,72 @@
-# Welcome to your Lovable project
+# WRLDS — Smart Textile Technology
 
-## Project info
+A marketing website for **WRLDS**, a smart-textile technology company embedding sensors and electronics into fabrics. Showcases project case studies (FireCat, sport retail, workwear, hockey, pet tracker), technology details, development process, blog, careers, and company info — built with React, Vite, TypeScript, shadcn/ui and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6
+## Features
 
-## How can I edit this code?
+- Landing page with hero, stats, and product highlights
+- Project case-study pages: FireCat, Sport Retail, Workwear, Hockey, Pet Tracker
+- Tech Details and Development Process pages
+- Blog with article detail pages
+- About, Careers, Privacy Policy pages
+- Custom 404 page
+- Dark/light theme toggle (next-themes)
+- Toast notifications (shadcn/ui Sonner), charts (Recharts), animations (Framer Motion)
+- Cookie banner, OG image, sitemap.xml, robots.txt
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- React 18 + TypeScript
+- Vite (build)
+- React Router v6
+- shadcn/ui (Radix primitives) + Tailwind CSS
+- TanStack React Query
+- Framer Motion, Recharts, react-hook-form
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6) and start prompting.
+## Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone https://github.com/girishlade111/Smart-textile-technology.git
+cd Smart-textile-technology
+npm install --legacy-peer-deps
+npm run dev        # dev server at http://localhost:8080
 ```
 
-**Edit a file directly in GitHub**
+## Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build      # outputs static site to dist/
+npm run preview    # preview the production build
+```
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+Smart-textile-technology/
+├── index.html              # Entry HTML (title: WRLDS)
+├── vite.config.ts          # Vite config (base path for GitHub Pages)
+├── src/
+│   ├── App.tsx             # Router + providers (basename: /Smart-textile-technology)
+│   ├── main.tsx            # Entry point
+│   ├── pages/              # Index, project pages, TechDetails, Blog, About, Careers, …
+│   ├── components/         # shadcn/ui components + custom sections
+│   ├── data/               # Content data
+│   ├── hooks/              # Custom hooks
+│   └── lib/                # Utilities
+├── public/                 # favicon, og-image, sitemap.xml, robots.txt, uploads
+└── tailwind.config.ts      # Tailwind config
+```
 
-## What technologies are used for this project?
+## Env Vars
 
-This project is built with .
+None required. (Contact form uses `emailjs-com` — wire your own EmailJS keys in the contact component if you re-enable it.)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deploy Notes
 
-## How can I deploy this project?
+Static export. Served via GitHub Pages from the `gh-pages` branch (built `dist/` output): https://girishlade111.github.io/Smart-textile-technology/
 
-Simply open [Lovable](https://lovable.dev/projects/ec1d4f1e-2506-4da5-a91b-34afa90cceb6) and click on Share -> Publish.
+To redeploy: run `npm run build`, copy `dist/` contents to a `gh-pages` branch, and push. The Vite `base` and React Router `basename` are both set to `/Smart-textile-technology` so assets and routes resolve under the Pages subpath; a `404.html` copy of `index.html` handles deep-link refreshes.
 
-## I want to use a custom domain - is that possible?
+---
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Built by [Girish Lade](https://github.com/girishlade111) · [ladestack.in](https://ladestack.in)
